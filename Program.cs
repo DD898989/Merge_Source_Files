@@ -10,6 +10,8 @@ namespace ConsoleApplication12
 {
     class Program
     {
+        static bool b_Merge_Extract = true;
+        
         static string sourcePath = @"C:\Users\dave.gan\Desktop\DP";
 
         static int nSkipPrefix = 0;//如果是4  就是多拿掉"\MPI"這四個字   原本   "C:\Users\dave.gan\Desktop\DP\MPIGui" 變成 "Gui"
@@ -35,7 +37,7 @@ namespace ConsoleApplication12
 
         static void Main(string[] args)
         {
-            if (false)
+            if (b_Merge_Extract)
             {
                 //------------------------------------------------------------------------------------
                 List<string> seperateFiles = new List<string>();
