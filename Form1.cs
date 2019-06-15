@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -129,7 +129,7 @@ namespace Merge_Source_Files
                                         isWrite = true;
                                     }
                                     else
-                                    { 
+                                    {
                                         if (Regex.Match(line, this.textBox3.Text).Success)
                                         {
                                             line = fullPath + "【" + lineNum + "】" + line + "\n";
@@ -140,7 +140,7 @@ namespace Merge_Source_Files
                                 }
 
                                 if (isWrite)
-                                { 
+                                {
                                     writer.Write("XXX.XXX【0】 //*/" + "\n" + "XXX.XXX【0】 }" + "\n" + "XXX.XXX【0】 {" + "\n");
                                 }
 
@@ -188,7 +188,8 @@ namespace Merge_Source_Files
             }
             //------------------------------------------------------------------------------------
 
-            System.Diagnostics.Process.Start("notepad++.exe", sourcePath + temp);
+            string fileName = sourcePath + temp;
+            System.Diagnostics.Process.Start("notepad++.exe", "\"" + fileName + "\"");
 
             //------------------------------------------------------------------------------------
         }
