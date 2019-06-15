@@ -1,4 +1,4 @@
-﻿namespace Merge_Source_Files
+namespace Merge_Source_Files
 {
     partial class Form1
     {
