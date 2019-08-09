@@ -68,7 +68,7 @@ namespace Merge_Source_Files
         {
 
 
-            b_Merge_Extract = this.checkBox1.Checked;
+            b_Merge_Extract = this.textBox3.Text.Length > 0;
 
             nSkipPrefix = (int)this.numericUpDown1.Value;
 
