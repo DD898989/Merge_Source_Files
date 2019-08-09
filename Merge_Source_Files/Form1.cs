@@ -136,12 +136,35 @@ namespace Merge_Source_Files
                                 int lineNum = 0;
                                 string line;
 
+
+                                string exact = "";
+                                if (this.checkBox2.Checked)
+                                {
+                                    exact = @"\b";
+                                }
+
+                                RegexOptions option = RegexOptions.None;
+                                if (this.checkBox1.Checked)
+                                {
+                                    option = RegexOptions.IgnoreCase;
+                                }
+
+                                Encoding encode = Encoding.Default;
+                                if (this.checkBox3.Checked)
+                                {
+                                    encode = Encoding.UTF8;
+                                }
+
+
+
+
                                 System.IO.StreamReader sr = new System.IO.StreamReader(everyFile, Encoding.Default);
 
 
                                 bool isWrite = false;
                                 while ((line = sr.ReadLine()) != null)
                                 {
+                                    ++lineNum;
                                     ++lineNum;
 
                                     if (!b_Merge_Extract)
@@ -154,17 +177,6 @@ namespace Merge_Source_Files
                                     {
 
 
-                                        string exact = "";
-                                        if (this.checkBox2.Checked)
-                                        {
-                                            exact = @"\b";
-                                        }
-
-                                        RegexOptions option = RegexOptions.None;
-                                        if (this.checkBox1.Checked)
-                                        {
-                                            option = RegexOptions.IgnoreCase;
-                                        }
 
 
                                         if (Regex.Match(line, exact + this.textBox3.Text + exact, option).Success)
