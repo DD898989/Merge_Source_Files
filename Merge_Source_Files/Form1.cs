@@ -117,15 +117,16 @@ namespace Merge_Source_Files
                             string fullPath = everyFile.Substring(sourcePath.Length + nSkipPrefix);
 
                             if (
-                                (
-                                    !fullPath.Contains(@"C#")
-                                    &&
-                                    fullPath.Contains(@"#")
-                                )
-                                ||
-                                fullPath.Contains(@" - Copy")
-                                ||
-                                fullPath.Contains(@"\Copy of ")
+                                //(
+                                //    !fullPath.Contains(@"C#")
+                                //    &&
+                                //    fullPath.Contains(@"#")
+                                //)
+                                //||
+                                //fullPath.Contains(@" - Copy")
+                                //||
+                                //fullPath.Contains(@"\Copy of ")
+                                false
                                 )
                             {
 
@@ -162,7 +163,13 @@ namespace Merge_Source_Files
 
                                 if (isWrite)
                                 {
-                                    writer.Write("XXX.XXX【0】 //*/" + "\n" + "XXX.XXX【0】 }" + "\n" + "XXX.XXX【0】 {" + "\n");
+                                    FileInfo f = new FileInfo(everyFile);
+                                    writer.WriteLine("XXX.XXX【0】 //*/");
+                                    writer.WriteLine("XXX.XXX【0】 }");
+                                    writer.WriteLine("XXX.XXX【0】 {");
+                                    writer.WriteLine("XXX.XXX【0】 " + "File         :" + f.ToString());
+                                    writer.WriteLine("XXX.XXX【0】 " + "CreationTime :" + f.CreationTime.ToString("yyyy/MM/dd HH:mm:ss"));
+                                    writer.WriteLine("XXX.XXX【0】 " + "LastWriteTime:" + f.LastWriteTime.ToString("yyyy/MM/dd HH:mm:ss"));
                                 }
 
 
@@ -273,6 +280,30 @@ namespace Merge_Source_Files
         private void Form1_Load(object sender, EventArgs e)
         {
         }
+
+
+        private void listBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
+
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                ListBox lb = (ListBox)sender;
+                if (e.KeyCode == Keys.Delete)
+                {
+                    lb.Items.RemoveAt(lb.SelectedIndex);
+                    lb.SelectedIndex = 0;
+                }
+
+            }
+            catch
+            {
+
+            }
+        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {

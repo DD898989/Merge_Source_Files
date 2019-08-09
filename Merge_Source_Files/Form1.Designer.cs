@@ -87,6 +87,8 @@
             this.textBox2.TabIndex = 6;
             this.textBox2.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBox_DragDrop);
             this.textBox2.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBox_DragEnter);
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.listBox1_KeyPress);
             // 
             // textBox3
             // 
