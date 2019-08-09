@@ -152,11 +152,23 @@ namespace Merge_Source_Files
                                     }
                                     else
                                     {
-                                        if (Regex.Match(line, this.textBox3.Text).Success)
+                                        if (this.checkBox1.Checked)
                                         {
-                                            line = fullPath + "【" + lineNum + "】" + line + "\n";
-                                            writer.Write(line);
-                                            isWrite = true;
+                                            if (Regex.Match(line, this.textBox3.Text, RegexOptions.IgnoreCase).Success)
+                                            {
+                                                line = fullPath + "【" + lineNum + "】" + line + "\n";
+                                                writer.Write(line);
+                                                isWrite = true;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            if (Regex.Match(line, this.textBox3.Text).Success)
+                                            {
+                                                line = fullPath + "【" + lineNum + "】" + line + "\n";
+                                                writer.Write(line);
+                                                isWrite = true;
+                                            }
                                         }
                                     }
                                 }
