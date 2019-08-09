@@ -152,23 +152,26 @@ namespace Merge_Source_Files
                                     }
                                     else
                                     {
+
+
+                                        string exact = "";
+                                        if (this.checkBox2.Checked)
+                                        {
+                                            exact = @"\b";
+                                        }
+
+                                        RegexOptions option = RegexOptions.None;
                                         if (this.checkBox1.Checked)
                                         {
-                                            if (Regex.Match(line, this.textBox3.Text, RegexOptions.IgnoreCase).Success)
-                                            {
-                                                line = fullPath + "【" + lineNum + "】" + line + "\n";
-                                                writer.Write(line);
-                                                isWrite = true;
-                                            }
+                                            option = RegexOptions.IgnoreCase;
                                         }
-                                        else
+
+
+                                        if (Regex.Match(line, exact + this.textBox3.Text + exact, option).Success)
                                         {
-                                            if (Regex.Match(line, this.textBox3.Text).Success)
-                                            {
-                                                line = fullPath + "【" + lineNum + "】" + line + "\n";
-                                                writer.Write(line);
-                                                isWrite = true;
-                                            }
+                                            line = fullPath + "【" + lineNum + "】" + line + "\n";
+                                            writer.Write(line);
+                                            isWrite = true;
                                         }
                                     }
                                 }
