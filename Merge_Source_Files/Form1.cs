@@ -158,6 +158,8 @@ namespace Merge_Source_Files
 
 
 
+
+
                                 System.IO.StreamReader sr = new System.IO.StreamReader(everyFile, Encoding.Default);
 
 
@@ -341,6 +343,15 @@ namespace Merge_Source_Files
         {
 
             System.Diagnostics.Process.Start(iniFile);
+        }
+
+        private void btn_Add_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+            {
+                this.textBox2.Items.Add(folderBrowserDialog1.SelectedPath);
+            }
         }
     }
 }
