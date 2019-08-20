@@ -107,7 +107,7 @@ namespace Merge_Source_Files
                 if (System.IO.File.Exists(writeFile))
                     System.IO.File.Delete(writeFile);
 
-                using (StreamWriter writer = new StreamWriter(writeFile))
+                using (StreamWriter writer = new StreamWriter(writeFile))//,false,Encoding.UTF8))
                 {
                     foreach (string everyFile in GetFiles(sourcePath))
                     {
@@ -166,27 +166,50 @@ namespace Merge_Source_Files
                                 bool isWrite = false;
                                 while ((line = sr.ReadLine()) != null)
                                 {
-                                    ++lineNum;
+                                    bool isWriteLine = false;
                                     ++lineNum;
 
                                     if (!b_Merge_Extract)
                                     {
-                                        line = fullPath + "【" + lineNum + "】" + line + "\n";
-                                        writer.Write(line);
+                                        isWriteLine = true;
                                         isWrite = true;
                                     }
                                     else
                                     {
-
-
-
-
-                                        if (Regex.Match(line, exact + this.textBox3.Text + exact, option).Success)
+                                        if (checkBox4.Checked)
                                         {
-                                            line = fullPath + "【" + lineNum + "】" + line + "\n";
-                                            writer.Write(line);
-                                            isWrite = true;
+                                            if (Regex.Match(line, exact + this.textBox3.Text + exact, option).Success)
+                                            {
+                                                isWriteLine = true;
+                                                isWrite = true;
+                                            }
                                         }
+                                        else
+                                        {
+                                            if (option == RegexOptions.IgnoreCase)
+                                            {
+                                                if (line.ToLower().Contains(this.textBox3.Text.ToLower()))
+                                                {
+                                                    isWriteLine = true;
+                                                    isWrite = true;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                if (line.Contains(this.textBox3.Text))
+                                                {
+                                                    isWriteLine = true;
+                                                    isWrite = true;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    if (isWriteLine)
+                                    {
+                                        line = fullPath + "【" + lineNum + "】" + line + "\n";
+                                        writer.Write(line);
+                                        isWrite = true;
                                     }
                                 }
 
@@ -256,8 +279,16 @@ namespace Merge_Source_Files
             List<string> openFils = new List<string> { };
 
             foreach(string paths in this.textBox2.Items)
-            { 
-                openFils.Add(Merge(paths));
+            {
+                try
+                {
+                    openFils.Add(Merge(paths));
+                }
+                catch(Exception excp)
+                {
+                    MessageBox.Show(excp.Message);
+                    return;
+                }
             }
 
             foreach (string fileName in openFils)
