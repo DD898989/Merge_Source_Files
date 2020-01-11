@@ -29,7 +29,15 @@ namespace Merge_Source_Files
                         string file = sr.ReadLine();
                         if (file.Length > 0)
                         {
-                            this.textBox2.Items.Add(file);
+                            if (file.Contains(":") || file.Contains("\\"))
+                            {
+                                this.listBox1.Items.Add(file);
+                            }
+                            else
+                            {
+                                this.textBox1.Text += Environment.NewLine;
+                                this.textBox1.Text += file;
+                            }
                         }
                     }
                 }
@@ -59,15 +67,13 @@ namespace Merge_Source_Files
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             foreach (string fileName in files)
             {
-                textBox2.Items.Add(fileName);
+                listBox1.Items.Add(fileName);
             }
         }
 
 
         public string Merge(string sourcePath)
         {
-
-
             b_Merge_Extract = this.textBox3.Text.Length > 0;
 
             nSkipPrefix = (int)this.numericUpDown1.Value;
@@ -77,22 +83,6 @@ namespace Merge_Source_Files
                 StringSplitOptions.RemoveEmptyEntries
             );
 
-
-            //string[] extensions = { 
-            //                     //"h",
-            //                     "cs",
-            //                     "cpp",
-            //                     //"trss",
-            //                     //"cxx",
-            //                     //"hxx",
-            //                     //"xsl",
-            //                     //"xml",
-            //                     //"sln",
-            //                     //"xslt",
-            //                     //"csproj",
-            //                     //"lib",
-            //                     //"txt", 
-            //                };
 
             //------------------------------------------------------------------------------------
             List<string> seperateFiles = new List<string>();
@@ -111,8 +101,7 @@ namespace Merge_Source_Files
                 {
                     foreach (string everyFile in GetFiles(sourcePath))
                     {
-                        string ext_ = everyFile.Substring(everyFile.Length - ext.Length - 1);
-                        if (string.Compare("." + ext, ext_, true) == 0)
+                        if (everyFile.EndsWith(ext))
                         {
                             string fullPath = everyFile.Substring(sourcePath.Length + nSkipPrefix);
 
@@ -278,13 +267,13 @@ namespace Merge_Source_Files
         {
             List<string> openFils = new List<string> { };
 
-            foreach(string paths in this.textBox2.Items)
+            foreach (string paths in this.listBox1.Items)
             {
                 try
                 {
                     openFils.Add(Merge(paths));
                 }
-                catch(Exception excp)
+                catch (Exception excp)
                 {
                     MessageBox.Show(excp.Message);
                     return;
@@ -381,8 +370,51 @@ namespace Merge_Source_Files
             FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                this.textBox2.Items.Add(folderBrowserDialog1.SelectedPath);
+                this.listBox1.Items.Add(folderBrowserDialog1.SelectedPath);
             }
+        }
+
+        private void BtnCheck_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, int> check_dic = new Dictionary<string, int>();
+
+            foreach (string paths in this.listBox1.Items)
+            {
+                foreach (string everyFile in GetFiles(paths))
+                {
+                    string key;
+
+                    key = Path.GetExtension(everyFile);
+                    if (key == "")
+                    {
+                        key = Path.GetFileName(everyFile);
+                    }
+
+
+                    if (check_dic.ContainsKey(key))
+                    {
+                        check_dic[key]++;
+                    }
+                    else
+                    {
+                        check_dic[key] = 1;
+                    }
+                }
+            }
+
+            textBox4.Text = "";
+            foreach (var pair in check_dic.OrderByDescending(p => p.Value))
+            {
+                if (pair.Value <= 1)
+                    break;
+
+                textBox4.Text += pair.Value;
+                textBox4.Text += ":";
+                textBox4.Text += pair.Key;
+                textBox4.Text += "\r\n";
+            }
+
+
         }
     }
 }
