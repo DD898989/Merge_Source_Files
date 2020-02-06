@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -101,7 +101,7 @@ namespace Merge_Source_Files
                 {
                     foreach (string everyFile in GetFiles(sourcePath))
                     {
-                        if (everyFile.EndsWith(ext))
+                        if (everyFile.ToLower().EndsWith(ext))
                         {
                             string fullPath = everyFile.Substring(sourcePath.Length + nSkipPrefix);
 
