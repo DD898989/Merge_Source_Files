@@ -1,0 +1,10 @@
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\bin\Release\Merge_Source_Files.exe.config
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\bin\Release\Merge_Source_Files.exe
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\bin\Release\Merge_Source_Files.pdb
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\obj\Release\Merge_Source_Files.csprojAssemblyReference.cache
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\obj\Release\Merge_Source_Files.Form1.resources
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\obj\Release\Merge_Source_Files.Properties.Resources.resources
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\obj\Release\Merge_Source_Files.csproj.GenerateResource.cache
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\obj\Release\Merge_Source_Files.csproj.CoreCompileInputs.cache
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\obj\Release\Merge_Source_Files.exe
+C:\Users\DaveSwift5\Desktop\Github_Proj\Merge_Source_Files\Merge_Source_Files\obj\Release\Merge_Source_Files.pdb

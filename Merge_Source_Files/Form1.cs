@@ -280,10 +280,19 @@ namespace Merge_Source_Files
                 }
             }
 
-            foreach (string fileName in openFils)
+            var notepadpp = @"C:\Program Files (x86)\Notepad++\notepad++.exe";
+            if (File.Exists(notepadpp))
             {
-                System.Diagnostics.Process.Start("notepad++.exe", "\"" + fileName + "\"");
+                foreach (string fileName in openFils)
+                {
+                    System.Diagnostics.Process.Start(notepadpp, "\"" + fileName + "\"");
+                }
             }
+            else
+            {
+                throw new Exception("沒有找到"+ notepadpp);
+            }
+
         }
         //------------------------------------------------------------------------------------
         //------------------------------------------------------------------------------------
