@@ -43,6 +43,7 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.textBox_ProcessBar = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,11 +194,20 @@
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.BtnCheck_Click);
             // 
+            // textBox_ProcessBar
+            // 
+            this.textBox_ProcessBar.Enabled = false;
+            this.textBox_ProcessBar.Location = new System.Drawing.Point(12, 226);
+            this.textBox_ProcessBar.Name = "textBox_ProcessBar";
+            this.textBox_ProcessBar.Size = new System.Drawing.Size(266, 22);
+            this.textBox_ProcessBar.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 245);
+            this.ClientSize = new System.Drawing.Size(678, 253);
+            this.Controls.Add(this.textBox_ProcessBar);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.checkBox4);
@@ -239,6 +249,7 @@
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.TextBox textBox_ProcessBar;
     }
 }
 

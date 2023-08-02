@@ -1,0 +1,24 @@
+\Debug\Merge_Source_Files.exe.config【1】<?xml version="1.0" encoding="utf-8"?>
+\Debug\Merge_Source_Files.exe.config【2】<configuration>
+\Debug\Merge_Source_Files.exe.config【3】    <startup> 
+\Debug\Merge_Source_Files.exe.config【4】        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2"/>
+\Debug\Merge_Source_Files.exe.config【5】    </startup>
+\Debug\Merge_Source_Files.exe.config【6】</configuration>
+XXX.XXX【0】 //*/
+XXX.XXX【0】 }
+XXX.XXX【0】 {
+XXX.XXX【0】 File         :D:\E\Github_Proj\Merge_Source_Files\Merge_Source_Files\bin\Debug\Merge_Source_Files.exe.config
+XXX.XXX【0】 CreationTime :2021/01/27 06:53:36
+XXX.XXX【0】 LastWriteTime:2020/07/31 11:43:39
+\Release\Merge_Source_Files.exe.config【1】<?xml version="1.0" encoding="utf-8"?>
+\Release\Merge_Source_Files.exe.config【2】<configuration>
+\Release\Merge_Source_Files.exe.config【3】    <startup> 
+\Release\Merge_Source_Files.exe.config【4】        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.2"/>
+\Release\Merge_Source_Files.exe.config【5】    </startup>
+\Release\Merge_Source_Files.exe.config【6】</configuration>
+XXX.XXX【0】 //*/
+XXX.XXX【0】 }
+XXX.XXX【0】 {
+XXX.XXX【0】 File         :D:\E\Github_Proj\Merge_Source_Files\Merge_Source_Files\bin\Release\Merge_Source_Files.exe.config
+XXX.XXX【0】 CreationTime :2021/01/27 06:53:36
+XXX.XXX【0】 LastWriteTime:2020/07/31 11:43:39

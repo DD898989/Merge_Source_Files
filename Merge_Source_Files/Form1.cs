@@ -16,12 +16,14 @@ namespace Merge_Source_Files
     public partial class Form1 : Form
     {
         string iniFile = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name + ".ini";
+        int _nEvery;
         public Form1()
         {
             InitializeComponent();
 
             if (File.Exists(iniFile))
             {
+                this.textBox1.Text = "";
                 using (StreamReader sr = new StreamReader(iniFile))
                 {
                     while (sr.Peek() >= 0)
@@ -101,6 +103,14 @@ namespace Merge_Source_Files
                 {
                     foreach (string everyFile in GetFiles(sourcePath))
                     {
+                        _nEvery++;
+                        if (_nEvery % 500 == 0)
+                        {
+                            this.textBox_ProcessBar.Text = new string('*', (_nEvery / 500) % 50); //user experience
+                            Application.DoEvents();
+                        }
+
+
                         if (everyFile.ToLower().EndsWith(ext))
                         {
                             string fullPath = everyFile.Substring(sourcePath.Length + nSkipPrefix);
@@ -146,10 +156,7 @@ namespace Merge_Source_Files
 
 
 
-
-
-
-                                System.IO.StreamReader sr = new System.IO.StreamReader(everyFile, encode);
+                                StreamReader sr = new System.IO.StreamReader(everyFile, encode);
 
 
                                 bool isWrite = false;
